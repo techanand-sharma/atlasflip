@@ -48,6 +48,7 @@
     </delete>
     <delete>
       <fileset dir="${test}">
+        <classpath refid="classpath"/>
         <include name="**/*.class"/>
       </fileset>
     </delete>
@@ -79,6 +80,7 @@
   <target name="coverage.instrument" depends="compile">
     <emma enabled="yes">
       <instr instrpath="${classes}"
+        <mkdir dir="${webutils}"/>
         destdir="${instrumentedclasses}"
         metadatafile="./coverage.ec"
         merge="true"
